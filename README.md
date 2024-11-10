@@ -2,7 +2,7 @@
 
 [Live Link](https://vaiyer-ponno-client.vercel.app/) |  [Front-end Code](https://github.com/zamanmonirbu/vaiyer-ponno-client.git) |
  [Backend Code](https://github.com/zamanmonirbu/vaiyer-ponno-backend) |
-[Demo Video](https://demo-video-link.com)
+[Demo Video](https://youtu.be/xU94ACV-VyQ)
 
 
 ---
@@ -13,6 +13,23 @@ This is the Socket.IO service used for real-time communication in the Vaiyer Pon
 - **Real-time User Connection Management**: Tracks active users and their socket IDs for real-time communication.
 - **User Messaging**: Sends and receives messages between users instantly.
 - **Order Notifications**: Sends real-time notifications to vendors when they receive a new order.
+
+## Login Credentials
+
+To access different roles within the platform, use the following credentials:
+
+- **User Login**: 
+  - Email: `user@gmail.com` 
+  - Password: `user@gmail.com`
+
+- **Seller Login**: 
+  - Email: `seller@gmail.com`
+  - Password: `seller@gmail.com`
+
+- **Admin Login**: 
+  - Email: `admin@gmail.com` 
+  - Password: `admin@gmail.com`
+
 
 ## Setup
 
