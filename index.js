@@ -30,6 +30,8 @@ io.on("connection", (socket) => {
   socket.on("send-message", (data) => {
     const { receiverId } = data;
     const user = activeUsers.find((user) => user.userId === receiverId);
+
+    // console.log(receiverId,user)
     if (user) {
       io.to(user.socketId).emit("receive-message", data);
       // console.log(`Message sent to user ${receiverId}. Data:`, data);
@@ -38,17 +40,18 @@ io.on("connection", (socket) => {
     }
   });
 
-  socket.on("new-order", (orderData) => {
-    const { sellerId, orderDetails } = orderData;
-    const seller = activeUsers.find((user) => user.userId === sellerId);
-    if (seller) {
-      io.to(seller.socketId).emit("receive-order-notification", {
-        message: `You have a new order! Order details: ${orderDetails}`,
-        orderDetails: orderDetails,
-      });
-      // console.log(`Order notification sent to seller ${sellerId}. Order details:`, orderDetails);
-    } else {
-      // console.log(`Seller ${sellerId} not found for order notification.`);
-    }
-  });
+ 
+    // When a new order is placed, send notification to the seller
+    socket.on("new-order", (orderData) => {
+      const { sellerId, orderDetails } = orderData;
+      const seller = activeUsers.find((user) => user.userId === sellerId);
+
+      console.log("seller",seller,"sellerId",sellerId, "orderDetails",orderDetails)
+      if (seller) {
+        io.to(seller.socketId).emit("receive-order-notification", { sellerId, orderDetails });
+      }
+    });
+  
+  
+
 });
